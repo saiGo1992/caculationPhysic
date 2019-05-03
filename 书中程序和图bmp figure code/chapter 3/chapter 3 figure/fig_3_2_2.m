@@ -1,0 +1,20 @@
+% nonlinearfit.m
+clc;clear all;
+format long;
+x =1:8;
+y =[15.3 20.5 27.4 36.6 49.1 65.6 87.8 117.6];
+yt = log(y);
+xt = x;
+[at bt]=linearfit(xt,yt);
+a = exp(at);
+b = bt;
+x1=1:0.1:8;
+y1 = a*exp(b*x1);
+figure(1);
+set(gca,'FontSize',16);
+plot(x1,y1,x,y,'o');
+%title('ͼ3.2-2  p(x)= ae^{bx}');
+xlabel('x');
+ylabel('y');
+text(1.5,80,['a = ',num2str(a)],'Fontsize',16,'BackgroundColor',[.7 .9 .7]);
+text(1.5,70,['b = ',num2str(b)],'Fontsize',16,'BackgroundColor',[.7 .9 .7]);

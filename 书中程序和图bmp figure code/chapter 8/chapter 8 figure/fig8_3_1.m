@@ -1,0 +1,15 @@
+clc;
+epsron = 1;
+sigma = 1;
+x = 0.8:0.01:2.4;
+v = 4*epsron*((sigma./x).^12-(sigma./x).^6);
+f = 24*epsron*((2*(sigma./x).^13-(sigma./x).^7))/sigma;
+figure(1);
+set(gca,'FontSize',16);
+plot(x,v,'r-',x,f,'b-',x,0,'LineWidth',1);
+axis([.8,2.4,-3,3]);
+xlabel('r');
+ylabel('V(r),F(r)');
+legend('势能','作用力');
+%Title('图8.3-1  勒纳德-琼斯势');
+% grid on;
